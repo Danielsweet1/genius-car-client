@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import logo from '../../../assets/logo.svg'
 
 const Header = () => {
-    const menu = <>
+    const menu = < >
     <li><Link to='/'>Home</Link></li>
+    <li><Link to='/login'>Log In</Link></li>
     </>
   return (
     <div className="navbar bg-base-100 mt-8 mb-3">
@@ -28,7 +29,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold"
           >
           {menu}
           </ul>
@@ -36,7 +37,7 @@ const Header = () => {
         <Link><img style={{width:'70px'}}  src={logo} alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
+        <ul className="menu menu-horizontal p-0 font-bold">
           {menu}
         </ul>
       </div>
