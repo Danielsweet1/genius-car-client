@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext/AuthProvider";
 
 const Checkout = () => {
   const { title, price, _id } = useLoaderData();
-  const { user, } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const handlePlaceOrder = (e) => {
     e.preventDefault();
@@ -20,24 +20,22 @@ const Checkout = () => {
       service: _id,
       title,
       price,
-      customer: {
-        name,
-        email,
-        phone,
-        message,
-      },
+      name,
+      email,
+      phone,
+      message,
     };
-  
-      fetch("http://localhost:5000/orders", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(order),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-      form.reset();
+
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    form.reset();
   };
 
   return (
